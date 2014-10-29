@@ -1,0 +1,6 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+*/5 * * * * alex /bin/bash /home/alex/.change_wallpaper.sh
+* * * * * root echo "DEBUG: wallpaper cronjob." >> /home/alex/.debug
+

@@ -1,0 +1,30 @@
+#!/bin/sh
+# Display config.
+#
+### BEGIN INIT INFO
+# Provides:          display
+# Required-Start:    $remote_fs $syslog $time
+# Required-Stop:     $remote_fs $syslog $time
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: One time execute script to configure displays.
+# Description:       Configure displays.
+### END INIT INFO
+
+#https://wiki.archlinux.org/index.php/xrandr
+
+PRIMARY="DVI-I-1"
+SECONDARY="VGA-1"
+export HOME=/home/alex
+
+echo "Running display config." >> /home/alex/.debug
+
+xrandr -display :0
+
+xrandr --output $SECONDARY --mode 1024x768 >> /home/alex/.debug
+
+xrandr --output $PRIMARY --mode 1920x1080 >> /home/alex/.debug
+
+xrandr --output $SECONDARY --right-of $PRIMARY >> /home/alex/.debug
+
+/home/alex/.change_wallpaper.sh
