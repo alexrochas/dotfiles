@@ -38,7 +38,7 @@ filetype plugin indent on
 NeoBundleCheck
 
 let mapleader = "\<space>"
-set backspace=2 
+set backspace=2
 "autocmd BufEnter * lcd %:p:h
 
 nmap <leader>d :NERDTreeToggle %<CR>
@@ -47,6 +47,15 @@ nmap <leader>d :NERDTreeToggle %<CR>
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '│'
+
+" tab
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Line numbers
+set number
 
 " Use <leader>t to open ctrlp
 let g:ctrlp_map = '<leader>t'
@@ -117,6 +126,15 @@ nnoremap tp :tabprevious<CR>
 nnoremap tn :tabnext<CR>
 "horizontal split
 "nnoremap hh :split<CR>
+
+" trim whitespaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " magic here
 " au BufReadCmd *.docx,*.xlsx,*.pptx call zip#Browse(expand(""))

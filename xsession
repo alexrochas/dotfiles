@@ -1,3 +1,5 @@
+#Xsession, here I determine which program will run on i3 startup.
+
 #Xscreensaver
 exec /usr/bin/xscreensaver -no-splash &
 
@@ -13,5 +15,5 @@ exec workrave &
 #display config
 exec /home/alex/.displayConfig.sh &
 
-#i3 
+#i3
 exec i3

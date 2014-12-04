@@ -1,3 +1,4 @@
+# Xdefaults for terminal style.
 # transparency - true or false (default)
 URxvt*transparent: true
 
@@ -21,18 +22,18 @@ URxvt*saveLines: 65535
 # URxvt*background: Blue
 
 # Xft (X FreeType) with Bitstream, DejaVu, Liberation, or Terminus fonts:
-#  Fedora/debian packages: libXft/libxft2 
-#  An anti-aliased font setup with Xft looks fantastic; it can be a bit choppy 
+#  Fedora/debian packages: libXft/libxft2
+#  An anti-aliased font setup with Xft looks fantastic; it can be a bit choppy
 #  on older systems. You can always turn off anti-aliasing (antialias=false) if
 #  your terminal is sluggish. Use only ONE of the Xft pairs below:
 #
 # Xft: Bitstream fonts
-#  Fedora/debian packages: bitstream-vera-sans-mono-fonts/ttf-bitstream-vera 
+#  Fedora/debian packages: bitstream-vera-sans-mono-fonts/ttf-bitstream-vera
 #URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hinting=true
 #URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
 #
 # Xft: Ubuntu fonts
-#  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu 
+#  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu
 #URxvt*font: xft:Ubuntu mono:pixelsize=16:antialias=true:hinting=true
 #URxvt*boldFont: xft:Ubuntu mono:bold:pixelsize=16:antialias=true:hinting=true
 #

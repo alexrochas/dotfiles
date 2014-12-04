@@ -1,3 +1,5 @@
+# Bind keys.
+
 # screenshot
 "gnome-screenshot"
     m:0x50 + c:107

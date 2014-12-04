@@ -1,3 +1,6 @@
+# Actually my work zshel without dependecy management and with oh-my-zsh.
+# # TODO remove oh-my-zsh.
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -10,7 +13,7 @@ ZSH_THEME="alex"
 # Functions
 
 # -------------------------------------------------------------------
-# compressed file expander 
+# compressed file expander
 # (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
 # -------------------------------------------------------------------
 ex() {
@@ -168,7 +171,7 @@ They will race behind you, they will stumble, they will fall.
 But in time, they will join you in the sun, Kal.
 In time, you will help them accomplish wonders. \"\n\n ~Jor-El (Man Of Steel)\n"
 
-echo -e "\"Inventei um ditado, que diz, ‘Coleciono vinhos ruins’. 
+echo -e "\"Inventei um ditado, que diz, ‘Coleciono vinhos ruins’.
 Porque se o vinho é bom, está à disposição e a pessoa está ali, eu abrirei\"\n\n ~Ric Elias\n"
 
 echo -e "\"[Speaking to his son] You love playing with that.
