@@ -57,6 +57,12 @@ set expandtab
 " Line numbers
 set number
 
+" Highlight search
+set hlsearch
+
+" Clear search
+nnoremap <leader>/ :let@/ = ""<CR>
+
 " Smart search
 set incsearch
 
@@ -110,6 +116,11 @@ autocmd BufRead COMMIT_EDITMSG set tw=65
 autocmd BufRead COMMIT_EDITMSG set colorcolumn=66
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" CrtlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 " compiler c
 autocmd BufEnter *.c compiler gcc
