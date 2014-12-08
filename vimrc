@@ -57,6 +57,9 @@ set expandtab
 " Line numbers
 set number
 
+" Smart search
+set incsearch
+
 " Use <leader>t to open ctrlp
 let g:ctrlp_map = '<leader>t'
 " Ignore these directories
@@ -135,6 +138,9 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+" Work for me eclim!
+let g:EclimMakeLCDWarning = 1
 
 " magic here
 " au BufReadCmd *.docx,*.xlsx,*.pptx call zip#Browse(expand(""))
