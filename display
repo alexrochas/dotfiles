@@ -14,8 +14,8 @@
 #https://wiki.archlinux.org/index.php/xrandr
 
 # Should change if my config is different.
-PRIMARY="DVI-I-1"
-SECONDARY="VGA-1"
+PRIMARY="eDP1"
+SECONDARY="DP2"
 
 # Necessary since i'm running as root.
 export HOME=/home/alex
@@ -25,11 +25,11 @@ export HOME=/home/alex
 
 xrandr -display :0
 
-xrandr --output $SECONDARY --mode 1024x768 >> /home/alex/.debug
+xrandr --output $SECONDARY --mode 1920x1200 >> /home/alex/.debug
 
-xrandr --output $PRIMARY --mode 1920x1080 >> /home/alex/.debug
+xrandr --output $PRIMARY --mode 1366x768 >> /home/alex/.debug
 
-xrandr --output $SECONDARY --right-of $PRIMARY >> /home/alex/.debug
+xrandr --output $SECONDARY --left-of $PRIMARY >> /home/alex/.debug
 
 # Here I run the script for change wallpaper. Should not be here!
 # /home/alex/.change_wallpaper.sh
