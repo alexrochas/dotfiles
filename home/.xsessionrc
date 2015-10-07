@@ -1,0 +1,3 @@
+#!/bin/bash
+setxkbmap -model thinkpad60 -layout br
+xscreensaver -no-splash &
