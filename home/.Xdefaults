@@ -56,8 +56,8 @@ URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=16:antialias=true:hinting=tru
 #  the following line to your ~/.bashrc ($HOME/.bashrc) file under
 #  the heading "# User specific aliases and functions":
 #   alias ls="ls -h --color=auto"
-URxvt*color4: RoyalBlue
-URxvt*color12: RoyalBlue
+# URxvt*color4: RoyalBlue
+# URxvt*color12: RoyalBlue
 
 # scrollbar - true (default) or false
 URxvt*scrollBar: false
@@ -69,7 +69,7 @@ URxvt*scrollBar_right: false
 URxvt*scrollstyle: rxvt
 
 # intensity style.
-!URxvt.intensityStyles: false
+URxvt.intensityStyles: false
 
 # copy and paste to system clipboard
 !URxvt*keysym*Shift-Control-V: perl:clipboard:paste
@@ -157,7 +157,7 @@ URxvt.pointerBlank:         true
 
 !!Source http://github.com/altercation/solarized
 
-!*background: #002b36
+*background: #002b36
 *foreground: #657b83
 !!*fading: 40
 *fadeColor: #002b36
@@ -196,3 +196,10 @@ URxvt.pointerBlank:         true
 !! white dark/light
 *color7: #eee8d5
 *color15: #fdf6e3
+
+!! tab
+URxvt.keysym.C-Tab: \033{
+URxvt.keysym.Control-Shift-ISO_Left_Tab: \033}
+! disable ctrl-shit
+URxvt*iso14755: False
+URxvt*iso14755_52: False
