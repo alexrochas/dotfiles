@@ -1,14 +1,31 @@
 # Actually my work zshel without dependecy management and with oh-my-zsh.
 # # TODO remove oh-my-zsh.
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+source /home/alex/Development/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme robbyrussell/oh-my-zsh themes/apple
+
+# Tell antigen that you're done.
+antigen apply
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="alex"
 
 # Functions
 
@@ -19,28 +36,30 @@ ZSH_THEME="alex"
 ex() {
     if [[ -f $1 ]]; then
         case $1 in
-          *.tar.bz2) tar xvjf $1;;
-          *.tar.gz) tar xvzf $1;;
-          *.tar.xz) tar xvJf $1;;
-          *.tar.lzma) tar --lzma xvf $1;;
-          *.bz2) bunzip $1;;
-          *.rar) unrar $1;;
-          *.gz) gunzip $1;;
-          *.tar) tar xvf $1;;
-          *.tbz2) tar xvjf $1;;
-          *.tgz) tar xvzf $1;;
-          *.zip) unzip $1;;
-          *.Z) uncompress $1;;
-          *.7z) 7z x $1;;
-          *.dmg) hdiutul mount $1;; # mount OS X disk images
-          *) echo "'$1' cannot be extracted via >ex<";;
-    esac
+            *.tar.bz2) tar xvjf $1;;
+            *.tar.gz) tar xvzf $1;;
+            *.tar.xz) tar xvJf $1;;
+            *.tar.lzma) tar --lzma xvf $1;;
+            *.bz2) bunzip $1;;
+            *.rar) unrar $1;;
+            *.gz) gunzip $1;;
+            *.tar) tar xvf $1;;
+            *.tbz2) tar xvjf $1;;
+            *.tgz) tar xvzf $1;;
+            *.zip) unzip $1;;
+            *.Z) uncompress $1;;
+            *.7z) 7z x $1;;
+            *.dmg) hdiutul mount $1;; # mount OS X disk images
+            *) echo "'$1' cannot be extracted via >ex<";;
+  esac
     else
         echo "'$1' is not a valid file"
     fi
 }
 
 # Aliases
+alias filemanager='pcmanfm'
+alias pomodoros='nohup ~/Development/TeamViz/TeamViz'
 alias zshmytheme='vim ~/.oh-my-zsh/themes/alex.zsh-theme'
 alias zshconfig='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
@@ -49,24 +68,14 @@ alias i3config='vim ~/.i3/config'
 alias git='nocorrect git'
 #alias java6='echo Setting this terminal to JAVA 6 jvm.; export JAVA_HOME=/home/alexlucas/DmView/jdk1.6.0_14'
 #alias java7='echo Setting this terminal to JAVA 7 jvm.; export JAVA_HOME=/usr/lib/jvm/j2sdk1.7-oracle'
-alias vimdmview='dmview; vim'
-alias dmview='cd ~/Development/workspace/dmview'
-alias iargs='cd ~/Development/iargs_reports'
-alias discovery='cd ~/Development/workspace/device-discovery'
-alias inventory='cd ~/Development/workspace/inventory'
-alias models='cd ~/Development/workspace/models-abb'
-alias dmview-web='cd ~/Development/workspace/dmview-web'
 alias environment='sudo vim /etc/environment'
-alias nmsconf='vim ~/Development/DmView/nms.conf'
-alias nmsdbcredentials='vim ~/Development/DmView/conf/dbCredentials.txt'
-alias nmsautologin='vim ~/Development/DmView/conf/autologin'
 alias xsessionconf='vim ~/.xsession'
-alias nmslicense='~/Development/workspace/license-server/license-web/target'
-alias tasks='task list'
-alias jboss='echo Starting jboss...; bash ~/Development/jboss-as-7.1.1.Final/bin/standalone.sh'
 alias sudo='sudo -E '
 alias dev='cd ~/Development'
-alias jms='sudo service nms.jms start'
+alias rundashboard='python ~/Development/jenkins_test/dashboard/run.py --config ~/Development/jenkins_test/dashboard/docs/config.json --debug'
+alias workpy='workon dashboard'
+alias notebook='jupyter notebook'
+alias clipboard='xsel -b'
 
 # vim like shell
 bindkey -v
@@ -78,14 +87,6 @@ bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
-    zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 # CASE_SENSITIVE="true"
@@ -118,22 +119,12 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
 # Superman logo
 # jp2a --fill --background=dark --term-fit ~/Pictures/watchmenLogo.jpg
-jp2a --fill --background=light --fill ~/Pictures/supermanLogo.jpeg
-
-# Calendar call, showing 3 months
-# cal -3
-task calendar
-
-# show my tasks
-task next
+#jp2a --fill --background=light --fill ~/Pictures/supermanLogo.jpeg
 
 # empty line
 echo ""
@@ -187,3 +178,8 @@ With me, I think it's one.\"\n
 ~Staff Sergeant William James (Hurt Locker)"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+export  PYTHONPATH=$PYTHONPATH:/apps/tools/scm_tools/scm_common/python/
+export XAUTHORITY=/home/alex/.Xauthority
