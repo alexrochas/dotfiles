@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # colors class (border/backgr./text)
-client.focused #F00 #F00 #ffffff 
+client.focused #F00 #F00 #ffffff
 # client.unfocused #4b819a #4b819a #4b819a
 
 # new window border style
@@ -29,7 +29,8 @@ font pango: Liberation 14px
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec ~/.i3/shell.sh
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -100,7 +101,7 @@ bindsym $mod+z focus child
 bindsym $mod+1 workspace 1: Workbench
 bindsym $mod+2 workspace 2: Web
 bindsym $mod+3 workspace 3: IDE
-bindsym $mod+4 workspace 4: DmView
+bindsym $mod+4 workspace 4: Job
 bindsym $mod+5 workspace 5: Mail
 bindsym $mod+6 workspace 6: Documents
 bindsym $mod+7 workspace 7: Helper
@@ -114,7 +115,7 @@ bindsym $mod+0 workspace 10: Play
 bindcode $mod+Shift+10 move workspace 1: Workbench; workspace 1: Workbench
 bindcode $mod+Shift+11 move workspace 2: Web; workspace 2: Web
 bindcode $mod+Shift+12 move workspace 3: IDE; workspace 3: IDE
-bindcode $mod+Shift+13 move workspace 4: DmView; workspace 4: DmView
+bindcode $mod+Shift+13 move workspace 4: Job; workspace 4: Job
 bindcode $mod+Shift+14 move workspace 5: Mail; workspace 5: Mail
 bindcode $mod+Shift+15 move workspace 6: Documents; workspace 6: Documents
 bindcode $mod+Shift+16 move workspace 7: Helper; workspace 7: Helper
@@ -173,19 +174,19 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     #status_command i3status -c
-    status_command i3status -c ~/.i3status.mini.conf
-	output DVI-I-1
+    status_command i3status -c ~/.i3status.conf
+	output DP2
     position top
     mode hide
     hidden_state hide
-    tray_output VGA-1
+    tray_output eDP1
 }
 
 bar {
-    status_command ~/.my_i3status.sh
-	output VGA-1
+    status_command i3status -c ~/.i3status.conf
+	output eDP1
     position top
-    tray_output VGA-1
+    tray_output eDP1
    #mode hide
    #hidden_state hide
 }
@@ -194,7 +195,7 @@ bar {
 popup_during_fullscreen leave_fullscreen
 
 # sound
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 3%- 
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 3%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 3%+
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
@@ -202,15 +203,11 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 assign [class="Pidgin"] → 1: Workbench
 assign [class="Icedove"] → 5: Mail
 assign [class="Iceweasel"] → 2: Web
-assign [class="Eclipse"] → 3: IDE
 assign [class="jetbrains-idea-ce"] → 3: IDE
 assign [class="jetbrains-idea"] → 3: IDE
-assign [class="Google-chrome"] → 2: Web
-assign [class="nms-Main"] → 4: DmView
+assign [class="Google-chrome"] → 4: Job
 assign [class="Evince"] → 6: Documents
 assign [class="Okular"] → 6: Documents
-assign [title="Login Window"] → 4: DmView
-assign [title="Network Manager$"] → 4: DmView
 assign [title="Skype"] → 10: Play
 assign [title="Remmina"] → 7: Helper
 assign [class="jetbrains-idea" title="Run"] → 7: Helper
@@ -218,20 +215,21 @@ assign [class="jetbrains-idea" title="Debug"] → 7: Helper
 assign [class="jetbrains-idea" title="Project"] → 7: Helper
 assign [title="Favorites"] → 7: Helper
 assign [class="jetbrains-idea" title="Find"] → 7: Helper
+assign [class="Spotify"] → 10: Play
+assign [class="Firefox"] → 2: Web
 
 # window behavior
-for_window [title="Login Window"] floating enable ; workspace 4: DmView
 for_window [class="URxvt"] border 1pixel
 for_window [class="Firefox"] border none
 # for_window [class="jetbrains-idea-ce"] border none
 
 # startup aplicattions
+exec --no-startup-id /home/alex/.display; /home/alex/.change_wallpaper.sh
 # exec --no-startup-id tomboy
 # exec --no-startup-id firefox
 # exec --no-startup-id intellij
 
 # windows rules
-# for_window [class="Eclipse"] floating disable
 for_window [class="jetbrains-idea" title="Run"] floating disable
 for_window [class="jetbrains-idea" title="Debug"] floating disable
 for_window [class="jetbrains-idea" title="Project"] floating disable
@@ -242,22 +240,26 @@ for_window [class="jetbrains-idea" title="Find"] floating disable
 # exec setxkbmap -option ctrl:nocaps
 exec setxkbmap -option caps:escape
 
+
+# start xscreensaver
+bindsym mod1+control+l exec xscreensaver-command -lock
+
 # scratchpad
 bindcode $mod+Shift+49 move scratchpad
 bindcode $mod+49 scratchpad show
 
 # rules for workspaces
-workspace "4: DmView" output VGA-1
-workspace "9: VIM" output VGA-1
-workspace "10: Play" output VGA-1
-workspace "8: SQL" output VGA-1
-workspace "5: Mail" output DVI-I-1
-workspace "1: Workbench" output DVI-I-1
-workspace "2: Web" output DVI-I-1
-workspace "3: IDE" output DVI-I-1
-workspace "7: Helper" output VGA-1
-workspace "6: Documents" output VGA-1
+workspace "4: Job" output DP2
+workspace "9: VIM" output DP2
+workspace "10: Play" output eDP1
+#workspace "8: SQL" output VGA-1
+#workspace "5: Mail" output DVI-I-1
+workspace "1: Workbench" output DP2
+workspace "2: Web" output eDP1
+workspace "3: IDE" output DP2
+workspace "7: Helper" output eDP1
+#workspace "6: Documents" output VGA-1
 
 # keys to move workspace through outputs
-bindsym $mod+Shift+P move workspace to output DVI-I-1
-bindsym $mod+p move workspace to output VGA-1
+bindsym $mod+Shift+P move workspace to output DP2
+bindsym $mod+p move workspace to output eDP1
