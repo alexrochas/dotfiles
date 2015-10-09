@@ -8,6 +8,7 @@ How-to intall:
 gem install homesick
 homesick clone https://github.com/alexrochas/dotfiles
 homesick symlink dotfiles
+homesick rc dotfiles
 ```
 
 *Install with [homesick](https://github.com/technicalpickles/homesick).*
