@@ -46,7 +46,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'tpope/vim-fugitive' " Show git branch and other similar features
     NeoBundle 'scrooloose/nerdtree' " File navigation
     NeoBundle 'Lokaltog/powerline' " Statusline
-    NeoBundle 'xmisao/rubyjump.vim' " Go to code ruby
+    "NeoBundle 'xmisao/rubyjump.vim' " Go to code ruby
     NeoBundle 'slim-template/vim-slim' " Syntax highlighting
     NeoBundle 'tpope/vim-rails' " Functions for work with rails
     NeoBundle 'tpope/vim-bundler' " Use bundler from inside vim
@@ -109,6 +109,9 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set softtabstop=4
+
+autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " buffer switch with <C-o> and <C-i>
 
@@ -175,9 +178,7 @@ augroup END
 "set tags+=./tags;/
 "set autochdir
 set path+=**
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+
 "map <C-S-C> "+y
 "map <C-S-P> "+p
 call togglebg#map("<F12>")
