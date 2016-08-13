@@ -32,6 +32,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'ekalinin/Dockerfile.vim' " Syntax for dockerfile
     NeoBundle 'keith/investigate.vim' " Looking documentation on browser/Zeal/Dash
     NeoBundle 'honza/vim-snippets' " Snippets
+    NeoBundle 'terryma/vim-expand-region' " Expand region
     NeoBundle 'gregsexton/gitv' " Git repository viewer
     NeoBundle 'Shougo/vimproc.vim', {
                 \ 'build' : {
@@ -91,6 +92,10 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " Register
 set clipboard=unnamedplus
+
+" Expand region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " Zeal for docs!
 " nmap NEW_MAPPING <Plug>Zeavim           " <leader>z (NORMAL mode)

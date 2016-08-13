@@ -12,6 +12,10 @@ antigen bundle heroku
 antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
+antigen bundle gradle
+antigen bundle alexrochas/zsh-extract
+antigen bundle alexrochas/zsh-vim-crtl-z
+antigen bundle alexrochas/zsh-git-semantic-commits
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -27,55 +31,17 @@ antigen apply
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
-# Functions
-
-# -------------------------------------------------------------------
-# compressed file expander
-# (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
-# -------------------------------------------------------------------
-ex() {
-    if [[ -f $1 ]]; then
-        case $1 in
-            *.tar.bz2) tar xvjf $1;;
-            *.tar.gz) tar xvzf $1;;
-            *.tar.xz) tar xvJf $1;;
-            *.tar.lzma) tar --lzma xvf $1;;
-            *.bz2) bunzip $1;;
-            *.rar) unrar $1;;
-            *.gz) gunzip $1;;
-            *.tar) tar xvf $1;;
-            *.tbz2) tar xvjf $1;;
-            *.tgz) tar xvzf $1;;
-            *.zip) unzip $1;;
-            *.Z) uncompress $1;;
-            *.7z) 7z x $1;;
-            *.dmg) hdiutul mount $1;; # mount OS X disk images
-            *) echo "'$1' cannot be extracted via >ex<";;
-  esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
-
 # Aliases
 alias filemanager='pcmanfm'
-alias pomodoros='nohup ~/Development/TeamViz/TeamViz'
-alias zshmytheme='vim ~/.oh-my-zsh/themes/alex.zsh-theme'
 alias zshconfig='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
-alias i3config='vim ~/.i3/config'
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias git='nocorrect git'
-#alias java6='echo Setting this terminal to JAVA 6 jvm.; export JAVA_HOME=/home/alexlucas/DmView/jdk1.6.0_14'
-#alias java7='echo Setting this terminal to JAVA 7 jvm.; export JAVA_HOME=/usr/lib/jvm/j2sdk1.7-oracle'
 alias environment='sudo vim /etc/environment'
-alias xsessionconf='vim ~/.xsession'
 alias sudo='sudo -E '
 alias dev='cd ~/Development'
-alias rundashboard='python ~/Development/jenkins_test/dashboard/run.py --config ~/Development/jenkins_test/dashboard/docs/config.json --debug'
-alias workpy='workon dashboard'
 alias notebook='jupyter notebook'
 alias clipboard='xsel -b'
+alias ll='ls -l'
 
 # vim like shell
 bindkey -v
@@ -129,9 +95,6 @@ COMPLETION_WAITING_DOTS="true"
 # empty line
 echo ""
 
-# Fortunes
-# fortune 30% debian-hints 30% brasil 40% riddles
-
 # Mensagem
 echo -e "\n\"Agora é o lugar onde as perguntas descansam e as respostas crescem, nos seus próprios tempos…\"\n\n~ Jeff Foster, \"Slow Down, Friend\"\n"
 
@@ -177,9 +140,19 @@ And by the time you get to my age, maybe it's only one or two things.
 With me, I think it's one.\"\n
 ~Staff Sergeant William James (Hurt Locker)"
 
+# Fortunes
+echo -e "\n"
+fortune 30% debian-hints 30% brasil 40% riddles
+
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
-export  PYTHONPATH=$PYTHONPATH:/apps/tools/scm_tools/scm_common/python/
-export XAUTHORITY=/home/alex/.Xauthority
+source $(rvm 2.3.0 do rvm env --path)
+
+# added by travis gem
+[ -f /home/alex/.travis/travis.sh ] && source /home/alex/.travis/travis.sh
+
+fpath=(home/alex/Development/zsh-test $fpath)
+. /usr/share/autojump/autojump.sh
+
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
