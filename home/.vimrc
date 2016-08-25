@@ -29,6 +29,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'bling/vim-airline' " Status/tabline
     "NeoBundle 'ervandew/supertab'
     NeoBundle 'SirVer/ultisnips' " Snippets (to edit :UltiSnipsEdit)
+    NeoBundle 'suan/vim-instant-markdown' " Markdown preview
     NeoBundle 'ekalinin/Dockerfile.vim' " Syntax for dockerfile
     NeoBundle 'keith/investigate.vim' " Looking documentation on browser/Zeal/Dash
     NeoBundle 'honza/vim-snippets' " Snippets
