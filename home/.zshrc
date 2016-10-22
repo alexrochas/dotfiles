@@ -73,3 +73,9 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH Vim Crtl-Z
 [[ -f ~/.zsh/crtl-z.zsh ]] && source ~/.zsh/crtl-z.zsh
 
+# Oracle
+[[ -f ~/.zsh/oracle.zsh ]] && source ~/.zsh/oracle.zsh
+
+# Basher
+[[ -f ~/.zsh/basher.zsh ]] && source ~/.zsh/basher.zsh
+
