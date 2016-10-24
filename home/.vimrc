@@ -263,7 +263,7 @@ let g:EclimMakeLCDWarning = 1
 " au BufReadCmd *.odt,*.ott,*.ods,*.ots,*.odp,*.otp,*.odg,*.otg call zip#Browse(expand(""))
 
 " python abreviations
-ab ipdb import ipdb; ipdb.set_trace()
+" ab ipdb import ipdb; ipdb.set_trace()
 
 " That macro thing! \o/
 " press q and a lowercase letter to star recording, do your thing and press q to stop recording. Then press @ and the lowercase
