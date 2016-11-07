@@ -26,7 +26,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'Raimondi/delimitMate' " Auto complete of quotes/parenthesis...
     NeoBundle 'andviro/flake8-vim' " Python checker for pep8/mcabe/frosted
     NeoBundle 'KabbAmine/zeavim.vim' " Zeal search
-    NeoBundle 'bling/vim-airline' " Status/tabline
+    "NeoBundle 'bling/vim-airline' " Status/tabline
     "NeoBundle 'ervandew/supertab'
     NeoBundle 'SirVer/ultisnips' " Snippets (to edit :UltiSnipsEdit)
     NeoBundle 'suan/vim-instant-markdown' " Markdown preview
@@ -47,7 +47,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'airblade/vim-gitgutter' " Show's a git diff
     NeoBundle 'tpope/vim-fugitive' " Show git branch and other similar features
     NeoBundle 'scrooloose/nerdtree' " File navigation
-    NeoBundle 'Lokaltog/powerline' " Statusline
+    NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
     "NeoBundle 'xmisao/rubyjump.vim' " Go to code ruby
     NeoBundle 'slim-template/vim-slim' " Syntax highlighting
     NeoBundle 'tpope/vim-rails' " Functions for work with rails
@@ -87,6 +87,10 @@ set backspace=2
 let g:hl_matchit_enable_on_vim_startup = 1
 
 nmap <leader>d :NERDTreeToggle %<CR>
+
+" Config for powerline
+set laststatus=2
+set t_Co=256
 
 " Ignore .pyc files in NERDTree
 let NERDTreeIgnore = ['\.pyc$']
