@@ -22,7 +22,8 @@ antigen bundle alexrochas/zsh-path-environment-explorer
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme robbyrussell/oh-my-zsh themes/apple
+# You probably will want to install powerline fonts https://github.com/powerline/fonts
+antigen theme robbyrussell/oh-my-zsh themes/agnoster
 
 # Tell antigen that you're done.
 antigen apply

@@ -26,6 +26,9 @@ export KEYTIMEOUT=1
 # Uncomment this to disable bi-weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"
 
+# Default User
+DEFAULT_USER="alex"
+
 # Uncomment to change how often before auto-updates occur? (in days)
 # export UPDATE_ZSH_DAYS=13
 
