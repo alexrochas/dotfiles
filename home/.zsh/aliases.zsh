@@ -9,4 +9,6 @@ alias dev='cd ~/Development'
 alias notebook='jupyter notebook'
 alias clipboard='xsel -b'
 alias ll='ls -l'
+# git-explorer from https://github.com/alexrochas/git-explorer
+alias lg='git-explorer explore --light'
 
