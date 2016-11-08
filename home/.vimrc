@@ -57,6 +57,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'elzr/vim-json' " Syntax highlighting for json
     NeoBundle 'ecomba/vim-ruby-refactoring' " Ruby code rename and other functions
     NeoBundle 'tpope/vim-endwise' " Auto complete 'end' for ruby
+    NeoBundle 'moll/vim-node' " Auto complete 'end' for ruby
+    NeoBundle 'sidorares/node-vim-debugger' " Node debugger
+    NeoBundle 'myhere/vim-nodejs-complete' " Node complete
     NeoBundle 'davidhalter/jedi-vim' " Use it for python
     let g:jedi#auto_initialization = 1
     let g:jedi#use_tabs_not_buffers = 0
@@ -90,6 +93,7 @@ nmap <leader>d :NERDTreeToggle %<CR>
 
 " Config for powerline
 set laststatus=2
+" Work for rxvt-unicode-256color
 set t_Co=256
 
 " Ignore .pyc files in NERDTree
