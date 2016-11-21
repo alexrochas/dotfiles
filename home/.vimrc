@@ -57,9 +57,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'elzr/vim-json' " Syntax highlighting for json
     NeoBundle 'ecomba/vim-ruby-refactoring' " Ruby code rename and other functions
     NeoBundle 'tpope/vim-endwise' " Auto complete 'end' for ruby
+    "NeoBundle 'hallettj/jslint.vim' " JSLint
     NeoBundle 'moll/vim-node' " Auto complete 'end' for ruby
     NeoBundle 'sidorares/node-vim-debugger' " Node debugger
     NeoBundle 'myhere/vim-nodejs-complete' " Node complete
+    NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
     NeoBundle 'davidhalter/jedi-vim' " Use it for python
     let g:jedi#auto_initialization = 1
     let g:jedi#use_tabs_not_buffers = 0
@@ -82,6 +84,11 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
+" Vim swp files
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
 let mapleader = "\<space>"
 set backspace=2
 "autocmd BufEnter * lcd %:p:h
@@ -95,6 +102,10 @@ nmap <leader>d :NERDTreeToggle %<CR>
 set laststatus=2
 " Work for rxvt-unicode-256color
 set t_Co=256
+
+let g:nodejs_complete_config = {
+\  'max_node_compl_len': 15
+\}
 
 " Ignore .pyc files in NERDTree
 let NERDTreeIgnore = ['\.pyc$']
