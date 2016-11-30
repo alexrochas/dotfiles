@@ -19,6 +19,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
     NeoBundle 'altercation/vim-colors-solarized' " Solarized theme
+    NeoBundle 'jacoborus/tender'
+    NeoBundle 'flazz/vim-colorschemes'
     NeoBundle 'kien/ctrlp.vim' " Search in project
     NeoBundle 'scrooloose/syntastic' " Syntax checker
     NeoBundle 'Yggdroot/indentLine' " Show vertical lines for indentation
@@ -189,7 +191,8 @@ let g:ctrlp_use_caching=0
 
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme molokai
 
 augroup CursorLine
     au!
