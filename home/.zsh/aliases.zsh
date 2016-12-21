@@ -14,4 +14,4 @@ alias lg='git-explorer explore --light'
 alias docker-rm-images='docker rmi $(docker images -q)'
 alias docker-rm-containers='docker rm $(docker ps -a -q)'
 alias search-txt='function _search(){find ./ -type f -exec grep --color=always -Hil "$1" {} \;};_search'
-
+alias easy-vim='vim -y'
