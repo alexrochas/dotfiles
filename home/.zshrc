@@ -73,6 +73,9 @@ COMPLETION_WAITING_DOTS="true"
 # Autojump
 [[ -f ~/.zsh/autojump.zsh ]] && source ~/.zsh/autojump.zsh
 
+# Autojump
+[[ -f ~/.zsh/z.zsh ]] && source ~/.zsh/z.zsh
+
 # ZSH Vim Crtl-Z
 [[ -f ~/.zsh/crtl-z.zsh ]] && source ~/.zsh/crtl-z.zsh
 
