@@ -48,4 +48,4 @@ With me, I think it's one.\"\n
 
 # Fortunes
 echo -e "\n"
-fortune 30% debian-hints 30% brasil 40% riddles
+fortune 30% debian-hints 30% brasil 40% riddles | cowsay
