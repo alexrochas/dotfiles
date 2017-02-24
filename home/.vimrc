@@ -36,6 +36,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'keith/investigate.vim' " Looking documentation on browser/Zeal/Dash
     NeoBundle 'honza/vim-snippets' " Snippets
     NeoBundle 'terryma/vim-expand-region' " Expand region
+    NeoBundle 'vim-multiple-cursors'
     NeoBundle 'gregsexton/gitv' " Git repository viewer
     NeoBundle 'Shougo/vimproc.vim', {
                 \ 'build' : {
@@ -76,6 +77,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     let g:jedi#completions_command = "<C-Space>"
     let g:jedi#rename_command = "<leader>r"
     NeoBundle 'hynek/vim-python-pep8-indent' " Pep8 indentation checker
+    NeoBundle 'ahdinosaur-os/npm.vim'
 
 call neobundle#end()
 
