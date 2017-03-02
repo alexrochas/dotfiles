@@ -21,4 +21,4 @@ alias portainer='docker run -d -p 9000:9000 -v "/var/run/docker.sock=:/var/run/d
 alias abnt='setxkbmap -model abnt2 -layout br -variant abnt2'
 alias infinite='function _while(){while true; do eval "$1"; done;};_while'
 alias volume='pavucontrol'
-alias fuse-log='function _parseLog(){ sed -r "s/.*line\":(.*),\"host.*/\1/" $1 | bunyan;};_parseLog'
+alias fuse-log='function _parseLog(){ zcat $1 | sed -r "s/.*line\":(.*),\"host.*/\1/" | bunyan | vim - ;};_parseLog'
