@@ -22,7 +22,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'jacoborus/tender'
     NeoBundle 'flazz/vim-colorschemes'
     NeoBundle 'kien/ctrlp.vim' " Search in project
-    NeoBundle 'scrooloose/syntastic' " Syntax checker
+    NeoBundle 'vim-syntastic/syntastic' " Syntax checker
     NeoBundle 'Yggdroot/indentLine' " Show vertical lines for indentation
     NeoBundle 'ameade/qtpy-vim' " Run python unit tests
     NeoBundle 'Raimondi/delimitMate' " Auto complete of quotes/parenthesis...
@@ -62,8 +62,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'tpope/vim-endwise' " Auto complete 'end' for ruby
     "NeoBundle 'hallettj/jslint.vim' " JSLint
     NeoBundle 'moll/vim-node' " Auto complete 'end' for ruby
-    NeoBundle 'sidorares/node-vim-debugger' " Node debugger
-    NeoBundle 'myhere/vim-nodejs-complete' " Node complete
+    "NeoBundle 'sidorares/node-vim-debugger' " Node debugger
+    "NeoBundle 'myhere/vim-nodejs-complete' " Node complete
     NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
     NeoBundle 'davidhalter/jedi-vim' " Use it for python
     let g:jedi#auto_initialization = 1
@@ -96,6 +96,30 @@ set undodir=~/.vim/undo//
 let mapleader = "\<space>"
 set backspace=2
 "autocmd BufEnter * lcd %:p:h
+
+" syntactic
+" https://zirho.github.io/2016/10/06/vim-syntastic-local/
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '●'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
 
 " Matchit for end highligth
 let g:hl_matchit_enable_on_vim_startup = 1
