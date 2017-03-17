@@ -62,6 +62,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'tpope/vim-endwise' " Auto complete 'end' for ruby
     "NeoBundle 'hallettj/jslint.vim' " JSLint
     NeoBundle 'moll/vim-node' " Auto complete 'end' for ruby
+    NeoBundle 'tpope/vim-cucumber'
+    NeoBundle 'gavocanov/vim-js-indent'
     "NeoBundle 'sidorares/node-vim-debugger' " Node debugger
     "NeoBundle 'myhere/vim-nodejs-complete' " Node complete
     NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
@@ -138,6 +140,9 @@ let g:nodejs_complete_config = {
 " Ignore .pyc files in NERDTree
 let NERDTreeIgnore = ['\.pyc$']
 
+" open file in new tab
+let NERDTreeMapOpenInTab='<leader>t'
+
 " Register
 set clipboard=unnamedplus
 
@@ -165,6 +170,7 @@ set expandtab
 set softtabstop=4
 
 autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " buffer switch with <C-o> and <C-i>
 
