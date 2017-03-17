@@ -85,6 +85,8 @@ COMPLETION_WAITING_DOTS="true"
 # Basher
 [[ -f ~/.zsh/basher.zsh ]] && source ~/.zsh/basher.zsh
 
+# Hub https://github.com/github/hub
+[[ -f ~/.zsh/hub.zsh ]] && source ~/.zsh/hub.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/alex/.sdkman"
