@@ -223,8 +223,8 @@ let g:ctrlp_use_caching=0
 
 syntax enable
 set background=dark
-" colorscheme solarized
-colorscheme molokai
+colorscheme solarized
+" colorscheme molokai
 
 augroup CursorLine
     au!
