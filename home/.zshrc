@@ -88,6 +88,9 @@ COMPLETION_WAITING_DOTS="true"
 # Hub https://github.com/github/hub
 [[ -f ~/.zsh/hub.zsh ]] && source ~/.zsh/hub.zsh
 
+# Completions
+[[ -f ~/.zsh/completions.zsh ]] && source ~/.zsh/completions.zsh
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/alex/.sdkman"
 [[ -s "/home/alex/.sdkman/bin/sdkman-init.sh" ]] && source "/home/alex/.sdkman/bin/sdkman-init.sh"
