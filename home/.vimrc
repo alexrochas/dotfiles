@@ -20,6 +20,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
     NeoBundle 'altercation/vim-colors-solarized' " Solarized theme
     NeoBundle 'jacoborus/tender'
+    NeoBundle 'rhysd/vim-crystal'
+    NeoBundle 'skywind3000/quickmenu.vim'
+    NeoBundle 'luochen1990/rainbow'
+    "NeoBundle 'majutsushi/tagbar.vim'
     NeoBundle 'flazz/vim-colorschemes'
     NeoBundle 'kien/ctrlp.vim' " Search in project
     NeoBundle 'vim-syntastic/syntastic' " Syntax checker
@@ -170,6 +174,7 @@ set expandtab
 set softtabstop=4
 
 autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " buffer switch with <C-o> and <C-i>
@@ -367,3 +372,33 @@ function! UpdateTags()
 endfunction
 autocmd BufWritePost *.java call UpdateTags()
 
+" quickmenu
+" enable cursorline (L) and cmdline help (H)
+let g:quickmenu_options = "LH"
+
+" clear all the items
+call g:quickmenu#reset()
+
+" bind to F12
+noremap <silent><F12> :call quickmenu#toggle(0)<cr>
+
+" section 1, text starting with "#" represents a section (see the screen capture below)
+call g:quickmenu#append('# Develop', '')
+
+call g:quickmenu#append('item 1.1', 'echo "1.1 is selected"', 'select item 1.1')
+call g:quickmenu#append('item 1.2', 'echo "1.2 is selected"', 'select item 1.2')
+call g:quickmenu#append('item 1.3', 'echo "1.3 is selected"', 'select item 1.3')
+
+" section 2
+call g:quickmenu#append('# Misc', '')
+
+call g:quickmenu#append('item 2.1', 'echo "2.1 is selected"', 'select item 2.1')
+call g:quickmenu#append('item 2.2', 'echo "2.2 is selected"', 'select item 2.2')
+call g:quickmenu#append('item 2.3', 'echo "2.3 is selected"', 'select item 2.3')
+call g:quickmenu#append('item 2.4', 'echo "2.4 is selected"', 'select item 2.4')
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" Rainbow Brackets
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle"
