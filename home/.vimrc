@@ -22,6 +22,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'jacoborus/tender'
     NeoBundle 'rhysd/vim-crystal'
     NeoBundle 'skywind3000/quickmenu.vim'
+    NeoBundle 'junegunn/goyo.vim'
+    NeoBundle 'amix/vim-zenroom2'
+    NeoBundle 'drzel/vim-line-no-indicator'
     NeoBundle 'luochen1990/rainbow'
     "NeoBundle 'majutsushi/tagbar.vim'
     NeoBundle 'flazz/vim-colorschemes'
@@ -102,6 +105,9 @@ set undodir=~/.vim/undo//
 let mapleader = "\<space>"
 set backspace=2
 "autocmd BufEnter * lcd %:p:h
+
+" Zen room
+nnoremap <silent> <leader>g :Goyo<cr>
 
 " syntactic
 " https://zirho.github.io/2016/10/06/vim-syntastic-local/
