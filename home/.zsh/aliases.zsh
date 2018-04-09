@@ -26,7 +26,8 @@ alias volume='pavucontrol'
 alias fuse-log='function _parseLog(){ zcat $1 | sed -r "s/.*line\":(.*),\"host.*/\1/" | bunyan; };_parseLog'
 alias docker-fuse-log='while read line; do echo $line | sed -r "s/^.*\|.*(\{.*)$/\1/" | bunyan; done;'
 alias pdf='mupdf'
-alias vpn='echo -e "123S0ch1n" | sudo openconnect navpn.agcocorp.com -u "rochaal" --passwd-on-stdin < /dev/tty'
+#alias vpn='echo -e "123S0ch1n" | sudo openconnect navpn.agcocorp.com -u "rochaal" --passwd-on-stdin < /dev/tty'
+alias run-vpn="ssh_decrypt agco | sudo openconnect savpn.agcocorp.com -u "mandiahy" --passwd-on-stdin </dev/tty"
 alias test-mic='arecord | aplay'
 alias git-iamright='function iamright(){ git pull -Xtheirs --rebase; };iamright'
 alias git-youright='function youright(){ git pull -Xtheirs; };youright'
@@ -39,3 +40,7 @@ alias edit-alias='vim ~/.zsh/aliases.zsh'
 alias docker-stop-containers='docker stop $(docker ps -a -q)'
 alias reboot-wifi="sudo service network-manager restart"
 alias jupyter-lab="nvm use v6.11.0; jupyter-lab"
+alias how="tldr"
+alias elastic='docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.1.3'
+alias wifi-config='kde5-nm-connection-editor'
+alias which-port='function _whichPort() { lsof -i tcp:$1; }; _whichPort'
