@@ -44,3 +44,6 @@ alias how="tldr"
 alias elastic='docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.1.3'
 alias wifi-config='kde5-nm-connection-editor'
 alias which-port='function _whichPort() { lsof -i tcp:$1; }; _whichPort'
+alias jaxb='echo "--add-modules java.xml.bind"'
+alias git-next='git reset HEAD@{1}'
+alias start-swagger='docker run -p 80:8080 swaggerapi/swagger-editor'
