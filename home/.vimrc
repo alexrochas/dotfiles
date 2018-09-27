@@ -26,6 +26,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'amix/vim-zenroom2'
     NeoBundle 'drzel/vim-line-no-indicator'
     NeoBundle 'luochen1990/rainbow'
+    NeoBundle 'KKPMW/sacredforest-vim'
     "NeoBundle 'majutsushi/tagbar.vim'
     NeoBundle 'flazz/vim-colorschemes'
     NeoBundle 'kien/ctrlp.vim' " Search in project
@@ -234,8 +235,9 @@ let g:ctrlp_use_caching=0
 
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 " colorscheme molokai
+colorscheme sacredforest
 
 augroup CursorLine
     au!

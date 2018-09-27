@@ -71,7 +71,7 @@ COMPLETION_WAITING_DOTS="true"
 [ -f /home/alex/.travis/travis.sh ] && source /home/alex/.travis/travis.sh
 
 # Autojump
-[[ -f ~/.zsh/autojump.zsh ]] && source ~/.zsh/autojump.zsh
+# [[ -f ~/.zsh/autojump.zsh ]] && source ~/.zsh/autojump.zsh
 
 # Autojump
 [[ -f ~/.zsh/z.zsh ]] && source ~/.zsh/z.zsh
@@ -86,7 +86,7 @@ COMPLETION_WAITING_DOTS="true"
 [[ -f ~/.zsh/basher.zsh ]] && source ~/.zsh/basher.zsh
 
 # Hub https://github.com/github/hub
-[[ -f ~/.zsh/hub.zsh ]] && source ~/.zsh/hub.zsh
+# [[ -f ~/.zsh/hub.zsh ]] && source ~/.zsh/hub.zsh
 
 # Completions
 [[ -f ~/.zsh/completions.zsh ]] && source ~/.zsh/completions.zsh
@@ -101,3 +101,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=/opt/ssis/bin:$PATH
+source <(kubectl completion zsh)
+source <(kompose completion zsh)
+source $(dirname $(gem which colorls))/tab_complete.sh
+export CHANGE_MINIKUBE_NONE_USER=true
