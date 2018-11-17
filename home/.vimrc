@@ -19,11 +19,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
     NeoBundle 'altercation/vim-colors-solarized' " Solarized theme
+    NeoBundle 'ngmy/vim-rubocop'
     NeoBundle 'jacoborus/tender'
     NeoBundle 'rhysd/vim-crystal'
     NeoBundle 'skywind3000/quickmenu.vim'
     NeoBundle 'junegunn/goyo.vim'
     NeoBundle 'amix/vim-zenroom2'
+    NeoBundle 'gabrielelana/vim-markdown'
     NeoBundle 'drzel/vim-line-no-indicator'
     NeoBundle 'luochen1990/rainbow'
     NeoBundle 'KKPMW/sacredforest-vim'
@@ -39,7 +41,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     "NeoBundle 'bling/vim-airline' " Status/tabline
     "NeoBundle 'ervandew/supertab'
     NeoBundle 'SirVer/ultisnips' " Snippets (to edit :UltiSnipsEdit)
-    NeoBundle 'suan/vim-instant-markdown' " Markdown preview
     NeoBundle 'ekalinin/Dockerfile.vim' " Syntax for dockerfile
     NeoBundle 'keith/investigate.vim' " Looking documentation on browser/Zeal/Dash
     NeoBundle 'honza/vim-snippets' " Snippets
@@ -133,6 +134,9 @@ highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
+" Rubocop
+let g:vimrubocop_keymap = 0
+nmap <Leader>r :RuboCop<CR>
 
 " Matchit for end highligth
 let g:hl_matchit_enable_on_vim_startup = 1

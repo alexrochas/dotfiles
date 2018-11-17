@@ -106,3 +106,15 @@ source <(kubectl completion zsh)
 source <(kompose completion zsh)
 source $(dirname $(gem which colorls))/tab_complete.sh
 export CHANGE_MINIKUBE_NONE_USER=true
+export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/alex/.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/alex/.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/alex/.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/alex/.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+export PATH=/usr/local/go/bin:$PATH
+export PATH=$PATH:~/Development/flutter/bin
