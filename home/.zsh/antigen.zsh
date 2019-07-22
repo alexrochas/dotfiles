@@ -1,7 +1,7 @@
 # Actually my work zshel without dependecy management and with oh-my-zsh.
 # # TODO remove oh-my-zsh.
 
-source /home/alex/Development/antigen/antigen.zsh
+source ~/Development/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh

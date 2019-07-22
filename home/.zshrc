@@ -27,7 +27,7 @@ export KEYTIMEOUT=1
 DISABLE_AUTO_UPDATE="true"
 
 # Default User
-DEFAULT_USER="alex"
+DEFAULT_USER="arocha"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=13
@@ -61,6 +61,8 @@ COMPLETION_WAITING_DOTS="true"
 # jp2a --fill --background=dark --term-fit ~/Pictures/watchmenLogo.jpg
 #jp2a --fill --background=light --fill ~/Pictures/supermanLogo.jpeg
 
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Quotes
 [[ -f ~/.zsh/quotes.zsh ]] && source ~/.zsh/quotes.zsh
 
@@ -68,7 +70,7 @@ COMPLETION_WAITING_DOTS="true"
 [[ -f ~/.zsh/rvm.zsh ]] && source ~/.zsh/rvm.zsh
 
 # added by travis gem
-[ -f /home/alex/.travis/travis.sh ] && source /home/alex/.travis/travis.sh
+[ -f /.travis/travis.sh ] && source /.travis/travis.sh
 
 # Autojump
 # [[ -f ~/.zsh/autojump.zsh ]] && source ~/.zsh/autojump.zsh
@@ -92,18 +94,16 @@ COMPLETION_WAITING_DOTS="true"
 [[ -f ~/.zsh/completions.zsh ]] && source ~/.zsh/completions.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/alex/.sdkman"
-[[ -s "/home/alex/.sdkman/bin/sdkman-init.sh" ]] && source "/home/alex/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="~/.sdkman"
+[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=/opt/ssis/bin:$PATH
-source <(kubectl completion zsh)
-source <(kompose completion zsh)
+# source <(kubectl completion zsh)
+# source <(kompose completion zsh)
 source $(dirname $(gem which colorls))/tab_complete.sh
 export CHANGE_MINIKUBE_NONE_USER=true
 export GOPATH=$HOME/go
@@ -111,10 +111,15 @@ export GOBIN=$HOME/go/bin
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/alex/.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/alex/.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+[[ -f /.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/alex/.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/alex/.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+[[ -f /.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /.nvm/versions/node/v8.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
-export PATH=/usr/local/go/bin:$PATH
-export PATH=$PATH:~/Development/flutter/bin
+# export PATH=/usr/local/go/bin:$PATH
+# export PATH=$PATH:~/Development/flutter/bin
+export PATH=/usr/local/bin:$PATH
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
